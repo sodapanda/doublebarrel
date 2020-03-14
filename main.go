@@ -30,6 +30,7 @@ var ranger cidranger.Ranger
 
 var configPath string
 var mConfig config
+var version string
 
 type config struct {
 	Cache          int

@@ -20,8 +20,8 @@ __config.json:__
 ```js
     {
     "cache": 3000, // cache size
-    "localPublicIP": "115.195.37.189", //IP address that your ISP gives to you.You can find it by visiting https://www.ipip.net/
-    "remotePublicIP": "112.118.253.82", // IP address of your proxy server
+    "localPublicIP": "115.195.37.189", //IP address that your ISP gives to you.You can find it by visiting https://www.ipip.net/  used for ECS
+    "remotePublicIP": "112.118.253.82", // IP address of your proxy server. Used for ECS
     "listen": ":53", // UDP port to listen on,you change your OS's DNS server to this address
     "dnsServer": "8.8.8.8:853", // Upstream server to handle your request, the server must supoort DNS-over-tls
     "netRange": "cidrlist", // CIDR range list of your country(The one without freedom.)
