@@ -2,7 +2,7 @@
     "cache": 3000,
     "localPublicIP": "115.195.37.189",
     "remotePublicIP": "112.118.253.82",
-    "listen": ":5333",
+    "listen": ":53",
     "dnsServer": "8.8.8.8:853",
     "netRange": "cidrlist",
     "forward": [

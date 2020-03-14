@@ -6,7 +6,8 @@ package main
 //todo 部分国内域名对ECS支持不好，比如百度会解析出香港地址
 //todo signal的处理
 //todo log保存和处理
-//todo 提供配置文件
+//todo 提供配置文件 done
+//todo 对接上级socks5代理
 //todo 提供systemd脚本和运行时的user配置
 
 import (
@@ -160,9 +161,9 @@ func log(domain string, hitCache bool, isLocal bool, isChina bool) {
 		return
 	}
 	if isChina {
-		logRst += "China IP 🇨🇳"
+		logRst += "C"
 	} else {
-		logRst += "World IP 🇺🇳"
+		logRst += "W"
 	}
 
 	fmt.Println(logRst)
