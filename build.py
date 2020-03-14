@@ -5,7 +5,6 @@ import sys
 
 GO_OS_ARCH_LIST = [
     ["darwin", "amd64"],
-    ["linux", "386"],
     ["linux", "amd64"],
     ["linux", "arm"],
     ["linux", "arm64"],
@@ -13,10 +12,6 @@ GO_OS_ARCH_LIST = [
     ["linux", "mips", "hardfloat"],
     ["linux", "mipsle", "softfloat"],
     ["linux", "mipsle", "hardfloat"],
-    ["linux", "mips64"],
-    ["linux", "mips64le"],
-    ["freebsd", "386"],
-    ["freebsd", "amd64"],
     ["windows", "amd64"]
 ]
 
@@ -35,10 +30,11 @@ def go_build():
         print(command)
         subprocess.check_call(command, shell=True)
 
-        subprocess.check_call("zip " + zip_name + ".zip " +
+        subprocess.check_call("zip " +"output/" +zip_name + ".zip " +
                               binary_name + " " + "config.json cidrlist", shell=True)
 
 
 if __name__ == "__main__":
     if "-build" in sys.argv:
+        subprocess.check_call("mkdir output", shell=True)
         go_build()

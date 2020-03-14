@@ -1,5 +1,7 @@
 # Double Barrel
 
+[![Build Status](https://travis-ci.org/sodapanda/doublebarrel.svg?branch=v0.0.2)](https://travis-ci.org/sodapanda/doublebarrel)
+
 Issue two DNS requests concurrently.Get the best CDN optimized result without leaking your query. It means nobody on the wire konws what you quered for.You can choose DNS servers that you trust.
 
 ![icon](https://raw.githubusercontent.com/sodapanda/doublebarrel/master/icon.png "Logo Title Text 1")
