@@ -32,7 +32,7 @@ var ranger cidranger.Ranger
 var configPath string
 var mConfig config
 
-const version = "0.0.1"
+const version = "0.0.2"
 
 type config struct {
 	Cache          int
