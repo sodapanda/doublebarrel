@@ -26,5 +26,6 @@ deploy:
     - doublebarrel-linux-mipsle-hardfloat.zip
     - doublebarrel-linux-mipsle-softfloat.zip
     - doublebarrel-windows-amd64.zip
+  skip_cleanup: true
   on:
     tags: true
