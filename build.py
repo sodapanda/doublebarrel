@@ -19,6 +19,7 @@ GO_OS_ARCH_LIST = [
 def go_build():
     version = subprocess.check_output(
         "git describe --tags", shell=True).decode()
+    version = "".join(version.split())
     for o, a, *p in GO_OS_ARCH_LIST:
         zip_name = "doublebarrel-" + o + "-" + a + \
             ("-" + (p[0] if p else "") if p else "")
@@ -30,11 +31,10 @@ def go_build():
         print(command)
         subprocess.check_call(command, shell=True)
 
-        subprocess.check_call("zip " +"output/" +zip_name + ".zip " +
+        subprocess.check_call("zip " + "output/" + zip_name + ".zip " +
                               binary_name + " " + "config.json cidrlist", shell=True)
 
 
 if __name__ == "__main__":
     if "-build" in sys.argv:
-        subprocess.check_call("mkdir output", shell=True)
         go_build()
