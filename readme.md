@@ -2,6 +2,8 @@
 
 Issue two DNS requests concurrently.Get the best CDN optimized result without leaking your query. It means nobody on the wire konws what you quered for.You can choose DNS servers that you trust.
 
+![icon](https://raw.githubusercontent.com/sodapanda/doublebarrel/master/icon.png "Logo Title Text 1")
+
 ## Features
 
 If you live in China or Iran, you might be an expert of network proxy. when you turn on your proxy client, All network traffic is forwarded by the proxy server, even websites that have servers in your country which don't need to be proxied. You can solve this problem by adding routing table rules in your router, but there is something seems tricky:the DNS. If you got an wrong IP of a domain name, everything else will not be right. Big companies have CDN servers in every country. If you use the results returned by the proxy server blindly, the traffic that should have directly routed to the local CDN server may also be mistakenly forwarded to the proxy server.
