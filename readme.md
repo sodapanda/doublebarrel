@@ -17,7 +17,7 @@ You need two config files.
 
 __config.json:__
 
-```json
+```js
     {
     "cache": 3000, // cache size
     "localPublicIP": "115.195.37.189", //IP address that your ISP gives to you.You can find it by visiting https://www.ipip.net/
