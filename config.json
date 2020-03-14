@@ -4,7 +4,7 @@
     "remotePublicIP": "112.118.253.82",
     "listen": ":5333",
     "dnsServer": "8.8.8.8:853",
-    "netRange": "china_cidr.txt",
+    "netRange": "cidrlist",
     "forward": [
         {
             "domain": "baidu.com",
