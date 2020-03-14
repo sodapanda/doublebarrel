@@ -31,7 +31,8 @@ var ranger cidranger.Ranger
 
 var configPath string
 var mConfig config
-var version string
+
+const version = "0.0.1"
 
 type config struct {
 	Cache          int
@@ -257,15 +258,25 @@ func readConfig() error {
 	return nil
 }
 
-func readFlag() {
+func readFlag() error {
 	flagConfigPath := flag.String("config", "config.json", "path of config file")
+	flagVersion := flag.Bool("v", false, "get version")
+
 	flag.Parse()
 	configPath = *flagConfigPath
+
+	if *flagVersion {
+		return errors.New("only version")
+	}
+	return nil
 }
 
 func main() {
-	readFlag()
-
+	flagErr := readFlag()
+	if flagErr != nil {
+		fmt.Println("Version:", version)
+		return
+	}
 	configError := readConfig()
 	if configError != nil {
 		fmt.Println(configError)
