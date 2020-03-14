@@ -15,6 +15,8 @@ This project exists to solve this problem. Double barrel sends out two dns reque
 
 Download a binary version or build from source. 
 
+[Release Download](https://github.com/sodapanda/doublebarrel/releases)
+
 ## Usages
 
 You need two config files. 
