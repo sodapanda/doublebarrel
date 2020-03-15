@@ -1,15 +1,5 @@
 package main
 
-//todo 弃用自带的服务器，自带的服务器没有线程池，自动开线程导致没法细化处理,每个线程有自己的dnsClient
-//todo 使用Rx 进行双请求同时发出
-//todo Trie改成binary key，不再使用string 减少内存使用,tree高度优化 DONE
-//todo 部分国内域名对ECS支持不好，比如百度会解析出香港地址
-//todo signal的处理
-//todo log保存和处理
-//todo 提供配置文件 done
-//todo 对接上级socks5代理
-//todo 提供systemd脚本和运行时的user配置
-
 import (
 	"encoding/json"
 	"errors"
@@ -111,7 +101,7 @@ func serve() {
 			return
 		}
 
-		//china query
+		//first query and check if the result is in CIDR range
 		rstLocal, err := query(r, mConfig.LocalPublicIP, mConfig.DNSServer, true, true)
 		if err != nil {
 			return
@@ -127,8 +117,8 @@ func serve() {
 			w.WriteMsg(rstLocal)
 			return
 		}
-		isChinaL := checkChina(localIP.A)
-		if isChinaL {
+		isInRange := checkCIDRRange(localIP.A)
+		if isInRange {
 			w.WriteMsg(rstLocal)
 			addCache(name, rstLocal)
 			log(name, false, false, true)
@@ -215,7 +205,7 @@ func loadNetRange() error {
 	return nil
 }
 
-func checkChina(address net.IP) bool {
+func checkCIDRRange(address net.IP) bool {
 	contains, err := ranger.Contains(address)
 	if err != nil {
 		fmt.Println(err)
