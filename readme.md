@@ -8,8 +8,9 @@ Issue two DNS requests concurrently.Get the best CDN optimized result without le
 
 ## Features
 
-If you live in China or Iran, you might be an expert of network proxy. when you turn on your proxy client, All network traffic is forwarded by the proxy server, even websites that have servers in your country which don't need to be proxied. You can solve this problem by adding routing table rules in your router, but there is something seems tricky:the DNS. If you got an wrong IP of a domain name, everything else will not be right. Big companies have CDN servers in every country. If you use the results returned by the proxy server blindly, the traffic that should have directly routed to the local CDN server may also be mistakenly forwarded to the proxy server.
-This project exists to solve this problem. Double barrel sends out two dns requests at the same time, and the ECS fields indicate the IP that your locale ISP gives to you and the IP of your proxy server.After returning the result, make a comparison and choose the best answer.With DNS-over-tls on no body knows what you have queried for. Congratulations , you are not going to jail.
+If you live in China or Iran, you might be an expert of network proxy. when you turn on your proxy client, All network traffic is forwarded by the proxy server, even websites that have servers in your country which don't need to be proxied. You can solve this problem by adding routing table rules in your router, but there is something more tricky:the DNS. If you got an wrong IP of a domain name, everything else will not be right. Large Internet companies like Goolge or Twitter have CDN servers in every country. If you use the results returned by the proxy server blindly, the traffic that should have directly routed to the local CDN server may also be forwarded to the proxy server mistakenly.
+
+This project exists to solve this problem. Double barrel sends out two dns requests at the same time, and the ECS fields of each requst will be filled with the IP that your locale ISP gived to you and the IP of your proxy server.After returning the result, make a comparison and choose the best answer.With DNS-over-tls on no body knows what you have queried for. 
 
 ## Installation
 
@@ -30,7 +31,7 @@ __config.json:__
     "remotePublicIP": "112.118.253.82", // IP address of your proxy server. Used for ECS
     "listen": ":53", // UDP port to listen on,you change your OS's DNS server to this address
     "dnsServer": "8.8.8.8:853", // Upstream server to handle your request, the server must supoort DNS-over-tls
-    "netRange": "cidrlist", // CIDR range list of your country(The one without freedom.)
+    "netRange": "cidrlist", // CIDR range list of your country
     "forward": [ //You want to use a specific dns server to resolve some domain names, such as your company's intranet domain name.
         {
             "domain": "baidu.com",
