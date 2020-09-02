@@ -1,13 +1,29 @@
 {
     "cache": 3000,
-    "localPublicIP": "222.187.241.241",
-    "remotePublicIP": "210.48.139.193",
+    "localPublicIP": "115.220.218.124",
+    "remotePublicIP": "103.73.255.122",
     "listen": ":53",
     "dnsServer": "8.8.8.8:853",
     "netRange": "cidrlist",
     "forward": [
         {
             "domain": "baidu.com",
+            "server": "223.5.5.5:53"
+        },
+        {
+            "domain": "youdao.com",
+            "server": "223.5.5.5:53"
+        },
+        {
+            "domain": "zhimg.com",
+            "server": "223.5.5.5:53"
+        },
+        {
+            "domain": "taobao.com",
+            "server": "223.5.5.5:53"
+        },
+        {
+            "domain": "zhihu.com",
             "server": "223.5.5.5:53"
         }
     ]

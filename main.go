@@ -45,6 +45,9 @@ func checkCache(name string) (*dns.Msg, error) {
 }
 
 func addCache(name string, item *dns.Msg) {
+	if len(item.Answer)==0 {
+		return
+	}
 	ttl := item.Answer[len(item.Answer)-1].Header().Ttl
 	cacheData.SetWithExpire(name, item, time.Second*time.Duration(ttl))
 }
